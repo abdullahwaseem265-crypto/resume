@@ -1,203 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulla Jent Fabrics | Premium Cloth & Fabrics</title>
     
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Clothing Brand</title>
-<link rel="stylesheet" href=".//free-user-icon-3296-thumb.png">
+    <!-- Favicon - Custom Logo Icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23c9a227'/%3E%3Cstop offset='100%25' style='stop-color:%238b4513'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='15' fill='%231a1a2e'/%3E%3Ctext x='50' y='68' font-family='Georgia' font-size='45' font-weight='bold' fill='url(%23grad)' text-anchor='middle'%3EM%3C/text%3E%3Cpath d='M30 75 Q50 85 70 75' stroke='%23c9a227' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #c9a227;
+            --accent: #8b4513;
+            --background: #faf8f5;
+            --text-dark: #2d2d2d;
+            --text-light: #ffffff;
+            --gradient-gold: linear-gradient(135deg, #c9a227 0%, #8b4513 100%);
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-background:#f5f5f5;
-color:#333;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-header{
-background:black;
-color:white;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-header h1{
-letter-spacing:2px;
-}
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
 
-nav a{
-color:white;
-margin-left:20px;
-text-decoration:none;
-font-weight:bold;
-}
+        .accent-text {
+            font-family: 'Cormorant Garamond', serif;
+        }
 
-.hero{
-height:70vh;
-background:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b') center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-align:center;
-}
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
 
-.hero h2{
-font-size:50px;
-background:rgba(0,0,0,0.5);
-padding:20px;
-}
+        .navbar.scrolled {
+            padding: 0.7rem 5%;
+            background: rgba(26, 26, 46, 0.98);
+        }
 
-.products{
-padding:60px 40px;
-text-align:center;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
 
-.products h2{
-margin-bottom:40px;
-font-size:32px;
-}
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
 
-.product-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-}
+        .logo-text {
+            color: var(--text-light);
+        }
 
-.product{
-background:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+        .logo-text span {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--secondary);
+            text-transform: uppercase;
+        }
 
-.product img{
-width:100%;
-border-radius:10px;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-.product h3{
-margin:10px 0;
-}
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-.about{
-padding:60px 40px;
-background:white;
-text-align:center;
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
 
-.contact{
-padding:60px 40px;
-text-align:center;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-.contact input,
-.contact textarea{
-width:100%;
-max-width:500px;
-padding:10px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:5px;
-}
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
 
-button{
-background:black;
-color:white;
-border:none;
-padding:12px 25px;
-cursor:pointer;
-border-radius:5px;
-}
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
 
-footer{
-background:black;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
-</style>
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-light);
+            transition: all 0.3s ease;
+        }
 
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 46, 0.7), rgba(26, 26, 46, 0.5)),
+                        url('https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--secondary);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes scrollDot {
+            0% {
+                opacity: 1;
+                top: 8px;
+            }
+            100% {
+                opacity: 0;
+                top: 30px;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-gold);
+            margin: 1rem auto;
+        }
+
+        /* Collections Section */
+        .collections {
+            background: var(--background);
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .collection-card {
+            position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .collection-card:hover .collection-overlay {
+            background: linear-gradient(to top, rgba(26, 26, 46, 0.95), rgba(201, 162, 39, 0.3));
+        }
+
+        .collection-overlay h3 {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-overlay p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Featured Products */
+        .featured {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eae8e3 100%);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--text-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 20px;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--primary);
+            color: var(--text-light);
+        }
+
+        .about .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .about .section-title p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--secondary);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--background);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .info-text h4 {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .info-text p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            background: var(--text-light);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 4rem 10% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo .logo-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+        }
+
+        .footer-logo span {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            text-transform: uppercase;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-stats {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">M</div>
+            <div class="logo-text">
+                Mulla Jent Fabrics
+                <span>Premium Quality</span>
+            </div>
+        </a>
+        
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-<header>
-<h1>UrbanWear</h1>
-<nav>
-<a href="#">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Exquisite Fabrics for <span>Discerning Minds</span></h1>
+            <p class="accent-text">Where elegance meets exceptional craftsmanship</p>
+            <a href="#collections" class="cta-button">Explore Collection</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
 
-<section class="hero">
-<h2>Style That Defines You</h2>
-</section>
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <div class="section-title">
+            <h2>Our Collections</h2>
+            <div class="title-underline"></div>
+            <p>Discover our curated selection of premium fabrics</p>
+        </div>
+        
+        <div class="collection-grid">
+            <div class="collection-card">
+                <img src="https://rangeenfashion.com/wp-content/uploads/2023/10/alkaram-wool-9.jpg" alt="Alkaram Fabrics">
+                <div class="collection-overlay">
+                    <h3>Alkaram Premium</h3>
+                    <p>Luxury Fabrics</p>
+                </div>
+            </div>
 
-<section class="products" id="products">
-<h2>Our Products</h2>
+            
+            <div class="collection-card">
+                <img src="data:image/jpeg;base64,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" alt="Gul Ahmed Fabrics">
+                <div class="collection-overlay">
+                    <h3>Gul Ahmed</h3>
+                    <p>Lawn Collection</p>
+                </div>
+            </div>
 
-<div class="product-grid">
 
-<div class="product">
-<img src="./free-user-icon-3296-thumb.png">
-<h3>T-Shirt</h3>
-<p>$25</p>
-</div>
+            
+            <div class="collection-card">
+                <img src="https://alkaramstudio.com/wp-content/uploads/2021/09/image-9-scaled.jpg" alt="Alkaram Winter">
+                <div class="collection-overlay">
+                    <h3>Alkaram Winter</h3>
+                    <p>Premium Wool</p>
+                </div>
+            </div>
+</xai:function_call)
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
-<h3>Hoodie</h3>
-<p>$45</p>
-</div>
+<xai:function_call name="edit_file">
+<parameter name="path">index.html
+            
+            <div class="collection-card">
+http://www.wijdanstore.com/cdn/shop/files/boski-2.jpg?v=1689253228
+                <div class="collection-overlay">
+                    <h3>Asco Gents</h3>
+                    <p>Suiting Fabrics</p>
+                </div>
+            </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
-<h3>Jacket</h3>
-<p>$60</p>
-</div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <!-- Featured Products -->
+    <section class="featured" id="products">
+        <div class="section-title">
+            <h2>Featured Products</h2>
+            <div class="title-underline"></div>
+            <p>Handpicked selections from our finest inventory</p>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-tag">New</span>
+                    <img src="https://images.unsplash.com/photo-1607349875807-77e9d8f8158e?w=500" alt="Gents Sherwani Fabric">
+                </div>
+                <div class="product-info">
+                    <h3>Gents Sherwani</h3>
+                    <p>Premium fabric for traditional wear</p>
+PKR 25,000/meter
+                </div>
+            </div>
 
-<section class="about" id="about">
-<h2>About Our Brand</h2>
-<p>
-We create modern fashion designed for comfort and style.
-Our clothing is made with high quality materials to keep you looking great every day.
-</p>
-</section>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=500" alt="Embroidered Silk">
+                </div>
+                <div class="product-info">
+                    <h3>Embroidered Silk</h3>
+                    <p>Hand-embroidered patterns on pure silk</p>
+PKR 42,000/meter
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="product-tag">Sale</span>
+"http://www.wijdanstore.com/cdn/shop/files/boski-2.jpg?v=1689253228"
+                </div>
+                <div class="product-info">
+                    <h3>Egyptian Cotton</h3>
+                    <p>Premium long-staple cotton for superior softness</p>
+PKR 16,800/meter
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500" alt="Kashmir Wool">
+                </div>
+                <div class="product-info">
+                    <h3>Kashmir Wool</h3>
+                    <p>Finest wool blend from the Himalayas</p>
+PKR 36,400/meter
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="contact" id="contact">
-<h2>Contact Us</h2>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+<h2>About Mulla Jent Fabrics</h2>
+            <div class="title-underline"></div>
+            <p>A legacy of excellence in textile craftsmanship</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Crafting Excellence Since 1995</h3>
+                <p>At Mulla Jent Fabrics, we believe that exceptional quality begins with the finest materials. Each piece in our collection is carefully selected from the finest mills around the globe, ensuring that every meter of fabric meets our exacting standards. From luxurious silks to premium cottons, we offer an unparalleled selection that caters to designers, tailors, and fabric enthusiasts alike.</p>
+                <p>Our commitment to quality extends beyond our products to every interaction with our valued customers.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Fabric Varieties</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600" alt="Fabric Store">
+            </div>
+        </div>
+    </section>
 
-<input type="text" placeholder="Your Name">
-<br>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <div class="title-underline"></div>
+            <p>We'd love to hear from you</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Visit Our Store</h3>
+                <p>Experience our collection in person at our flagship store. Our knowledgeable staff is ready to assist you in finding the perfect fabric for your needs.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Address</h4>
+Shop Mulla Jents<br>Bazar-e-Faisal, Kareemabad<br>Near Meena Bazar
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+92 315 3498837 |</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>info@mullajentfabrics.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-text">
+                        <h4>Hours</h4>
+                        <p>Mon - Sat: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest">Interested In</label>
+                    <select id="interest" name="interest">
+                        <option value="">Select your interest</option>
+                        <option value="silk">Silk Fabrics</option>
+                        <option value="cotton">Cotton Fabrics</option>
+                        <option value="wool">Wool Fabrics</option>
+                        <option value="linen">Linen Fabrics</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell us about your requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<input type="email" placeholder="Your Email">
-<br>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo-icon">M</div>
+                    <div>
+                        Mulla Jent Fabrics
+                        <span>Premium Quality</span>
+                    </div>
+                </div>
+                <p>Your destination for premium quality fabrics. We offer an unparalleled selection of luxury textiles for discerning customers.</p>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">in</a>
+                    <a href="#" aria-label="Twitter">tw</a>
+                    <a href="#" aria-label="Pinterest">P</a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul>
+Shop Mulla Jents, Bazar-e-Faisal, Kareemabad
+                    <li>📞 +92 315 3498837 | +92 300 1234567</li>
+                    <li>✉️ info@wasayjentsfabrics.com</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mulla Jent Fabrics. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-<textarea rows="5" placeholder="Your Message"></textarea>
-<br>
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-<button>Send Message</button>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-</section>
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
 
-<footer>
-<p>© 2026 UrbanWear. All rights reserved.</p>
-</footer>
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
 
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            // Simple validation
+            if (name && email && message) {
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial animation styles to cards
+        document.querySelectorAll('.collection-card, .product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
+
